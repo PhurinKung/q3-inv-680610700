@@ -46,13 +46,13 @@ export function ItemList() {
             ) : (
               // replace the following hardcoded row with the dynamic mapping of data items
               inventory.map((i) => (
-                <TableRow>
+                <TableRow key={i.id}>
                   <TableCell>
                     <Badge variant="outline">{i.category}</Badge>
                   </TableCell>
                   <TableCell className="font-medium">{i.name}</TableCell>
                   <TableCell className="text-right">{i.quantity}</TableCell>
-                  <TableCell className="text-right">฿{i.price}</TableCell>
+                  <TableCell className="text-right">฿{(i.price).toFixed(2)}</TableCell>
                   <TableCell className="text-right font-semibold">
                     ฿{(i.quantity * i.price).toFixed(2)}
                   </TableCell>

@@ -41,8 +41,8 @@ export function CategoryCards() {
           
         return (
           // Use Card component to display values by category
-          <div className="flex-1 gap-2" >
-            <Card>
+          <div className="flex-1 gap-2" key={category.id}>
+            <Card >
               <CardHeader>
                 <CardTitle>
                   <span>{Icon}</span>

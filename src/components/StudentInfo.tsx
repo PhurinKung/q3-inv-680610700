@@ -17,7 +17,7 @@ export function StudentInfo() {
     // Use Drawer component to display student information
     <div className="flex-1 p-4">
       <Drawer swipeDirection="right">
-        <DrawerTrigger render={<Button variant="outline" />}>Phichamon Kaewboot</DrawerTrigger>
+        <DrawerTrigger render={<Button className="bg-blue-500 hover:bg-blue-600 text-white" />}>Phichamon Kaewboot</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>ข้อมูลนักศึกษา</DrawerTitle>

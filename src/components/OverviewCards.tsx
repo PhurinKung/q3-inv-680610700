@@ -19,7 +19,7 @@ export function OverviewCards() {
           <CardTitle className="text-sm font-medium">Total Stock Value</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl text-red-500 font-bold">฿{totalValue}</div>
+          <div className="text-2xl text-red-500 font-bold">฿{(totalValue).toFixed(2)}</div>
         </CardContent>
       </Card>
       <Card>
