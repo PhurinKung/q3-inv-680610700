@@ -21,27 +21,44 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function CategoryCards() {
   const inventory = useItemStore((state) => state.inventory);
-
+  
   return (
     <div className="grid gap-2 md:grid-cols-6">
-      {categoryOptions.map((category) => {
-        const categoryItems = inventory.filter(
-          (item) => item.category === category.value,
-        );
-        const categoryUnits = categoryItems.reduce(
-          (acc, item) => acc + item.quantity,
-          0,
-        );
-        const categoryValue = categoryItems.reduce(
-          (acc, item) => acc + item.quantity * item.price,
-          0,
-        );
-
+      {
+        categoryOptions.map((category) => {
+          const categoryItems = inventory.filter(
+            (item) => item.category === category.value,
+          );
+          const categoryUnits = categoryItems.reduce(
+            (acc, item) => acc + item.quantity,
+            0,
+          );
+          const categoryValue = categoryItems.reduce(
+            (acc, item) => acc + item.quantity * item.price,
+            0,
+          );
+        const Icon = iconMap[category.label];
+          
         return (
           // Use Card component to display values by category
-          <div>
-            {category.label} - ฿{categoryValue.toFixed(2)} - {categoryUnits}{" "}
-            units
+          <div className="flex-1 gap-2" >
+            <Card>
+              <CardHeader>
+                <CardTitle>
+                  <span>{Icon}</span>
+                  {category.label}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-xl font-bold">
+                  ฿{categoryValue.toFixed(2)}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {categoryUnits}{" "}
+                  units
+                </div>
+              </CardContent>
+            </Card>
           </div>
         );
       })}
